@@ -1,0 +1,4 @@
+.env
+/chat_bot/users.db
+config.json
+.idea
