@@ -10,6 +10,28 @@ python = "^3.11"
 python-telegram-bot = "^20.2"
 
 
+[tool.poetry.group.dev.dependencies]
+black = "^23.3.0"
+pre-commit = "^3.2.2"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 88
+target-version = ['py311']  # Change this to your target Python version
+include = '\.pyi?$'
+exclude = '''
+(
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
