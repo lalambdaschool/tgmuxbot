@@ -9,11 +9,15 @@ readme = "README.md"
 python = "^3.11"
 python-telegram-bot = "^20.2"
 aiosqlite = "^0.19.0"
+sqlalchemy = {version = "^2.0.9", extras = ["asyncio"]}
+
 
 
 [tool.poetry.group.dev.dependencies]
 black = "^23.3.0"
 pre-commit = "^3.2.2"
+pytest = "^7.3.1"
+pytest-asyncio = "^0.21.0"
 
 [build-system]
 requires = ["poetry-core"]
