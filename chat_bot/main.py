@@ -1,8 +1,10 @@
 import asyncio
 import logging
 import json
+import sys
 from typing import Optional
 
+import jsonschema
 from telegram import (
     Update,
     User,
@@ -29,8 +31,35 @@ from chat_bot.exceptions import NoAdminChat, NoTopicsAdminChat, NoTopicRightsAdm
 
 
 def load_config():
-    with open("../config.json", "r") as f:
-        return json.load(f)
+    try:
+        with open("../config.json", "r") as file:
+            data = json.load(file)
+    except FileNotFoundError:
+        stdin_data = sys.stdin.read()
+        data = json.loads(stdin_data)  # File doesn't exist, continue to read from stdin
+
+    try:
+        validate_json(data)
+        return data
+    except json.JSONDecodeError:
+        raise ValueError("Invalid JSON input")
+
+
+def validate_json(json_data):
+    # Define the JSON Schema
+    schema = {
+        "type": "object",
+        "properties": {
+            "ADMIN_CHAT_ID": {"type": "integer"},
+            "DEVELOPER_CHAT_ID": {"type": "integer"},
+            "ADMIN_LIST": {"type": "array", "items": {"type": "integer"}},
+            "PROMPT": {"type": "array", "items": {"type": "string"}},
+        },
+        "required": ["ADMIN_CHAT_ID", "DEVELOPER_CHAT_ID", "ADMIN_LIST", "PROMPT"],
+    }
+
+    # Validate the JSON data against the schema
+    jsonschema.validate(instance=json_data, schema=schema)
 
 
 config = load_config()

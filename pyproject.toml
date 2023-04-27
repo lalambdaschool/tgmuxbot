@@ -1,6 +1,6 @@
 [tool.poetry]
-name = "chatbot"
-version = "0.1.0"
+name = "chat-bot"
+version = "1.0.0"
 description = ""
 authors = ["ilya <dexoon@gmail.com>"]
 readme = "README.md"
@@ -10,6 +10,7 @@ python = "^3.11"
 python-telegram-bot = "^20.2"
 aiosqlite = "^0.19.0"
 sqlalchemy = {version = "^2.0.9", extras = ["asyncio"]}
+jsonschema = "^4.17.3"
 
 
 

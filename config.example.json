@@ -2,5 +2,16 @@
   "TELEGRAM_API_TOKEN": "1111111111:AABBCCDDEEFFGGHHII",
   "ADMIN_CHAT_ID": -10011111111,
   "DEVELOPER_CHAT_ID": 11111111,
-  "ADMIN_LIST": [1111111,222222]
+  "ADMIN_LIST": [
+    1111111,
+    222222
+  ],
+  "PROMPT": [
+    "You are a helpful assistant",
+    "You are a cruel mistress ",
+    "You exist to serve",
+    "You are a wise sage",
+    "You are a mischievous imp",
+    "You are a friendly neighbor"
+  ]
 }

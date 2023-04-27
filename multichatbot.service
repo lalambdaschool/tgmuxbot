@@ -1,0 +1,13 @@
+[Unit]
+Description=Multichat Bot
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/home/root
+ExecStart=/bin/sh -c 'cat /home/root/config.json| /usr/bin/env python /home/root/run_bot.py'
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
