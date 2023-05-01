@@ -2,3 +2,7 @@
 /chat_bot/users.db
 config.json
 .idea
+/.direnv
+__pycache__
+/result
+*.sqlite

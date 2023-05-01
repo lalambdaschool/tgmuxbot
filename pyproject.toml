@@ -20,6 +20,9 @@ pre-commit = "^3.2.2"
 pytest = "^7.3.1"
 pytest-asyncio = "^0.21.0"
 
+[tool.poetry.scripts]
+tgmuxbot = "chat_bot.main:main"
+
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
