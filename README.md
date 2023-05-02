@@ -1,3 +1,9 @@
+# tgmuxbot
+
+Multiplexes incoming messages into a single chat with a topic per sender (works in the other direction as well).
+
+---
+
 Для запуска необходимо собрать проект
 
 `poetry build`
