@@ -50,8 +50,9 @@
                     "${self.defaultPackage.${system}}/bin/tgmuxbot";
                   StateDirectory = "tgmuxbot";
                   WorkingDirectory = "/var/lib/tgmuxbot";
-                  DynamicUser = true;
+                  Restart = "always";
 
+                  DynamicUser = true;
                   NoNewPrivileges = true;
                   PrivateTmp = true;
                   PrivateDevices = true;
