@@ -52,7 +52,7 @@ def validate_json(json_data):
         "properties": {
             "ADMIN_CHAT_ID": {"type": "integer"},
             "DEVELOPER_CHAT_ID": {"type": "integer"},
-            "ADMIN_LIST": {"type": "array", "items": {"type": "integer"}},
+            "ADMIN_LIST": {"type": "array", "items": {"type": "string"}},
             "PROMPT": {"type": "array", "items": {"type": "string"}},
         },
         "required": ["ADMIN_CHAT_ID", "DEVELOPER_CHAT_ID", "ADMIN_LIST", "PROMPT"],
@@ -92,7 +92,7 @@ async def help(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
 
 async def set_text(update: Update, context: ContextTypes.DEFAULT_TYPE) -> None:
     """Обновляет приветственный текст"""
-    if update.effective_user.id not in ADMIN_LIST:
+    if update.effective_user.username not in ADMIN_LIST:
         return
     if update.message.reply_to_message:
         text = update.message.reply_to_message.text
